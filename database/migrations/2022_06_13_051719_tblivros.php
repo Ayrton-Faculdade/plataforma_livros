@@ -15,17 +15,18 @@ class Tblivros extends Migration
     {
         Schema::create('tblivros', function (Blueprint $table) {
             $table->id();
-            $table->binary('capa');
+            $table->mediumText('capa');
             $table->string('nome');
             $table->string('autor');
             $table->integer('ano');
             $table->integer('edicao');
             $table->string('editora');
             $table->integer('isbn');
-            $table->string('categoria');
+            $table->integer('categoria')->unsigned();
             $table->longText('descricao');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->boolean('estado')->default(true);
+            $table->tinyInteger('status')->unsigned()->default(1);
 
         });
     }

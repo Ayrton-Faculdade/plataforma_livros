@@ -26,6 +26,20 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="sobrenome" class="col-md-4 col-form-label text-md-end">{{ __('Sobrenome') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="sobrenome" type="text" class="form-control @error('sobrenome') is-invalid @enderror" name="sobrenome" value="{{ old('sobrenome') }}" required autocomplete="sobrenome" autofocus>
+
+                                @error('sobrenome')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-mail') }}</label>
 
                             <div class="col-md-6">
