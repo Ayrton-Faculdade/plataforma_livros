@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Livro extends Model
+class Livros extends Model
 {
     use HasFactory;
     protected $table = 'tblivros';
@@ -20,6 +20,7 @@ class Livro extends Model
         'categoria',
         'descricao',
         'user_id',
+        'tipo',
         'status'
     ];
 }

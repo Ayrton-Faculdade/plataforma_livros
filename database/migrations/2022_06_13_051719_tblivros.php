@@ -26,6 +26,7 @@ class Tblivros extends Migration
             $table->longText('descricao');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->tinyInteger('tipo');
             $table->tinyInteger('status')->unsigned()->default(1);
 
         });

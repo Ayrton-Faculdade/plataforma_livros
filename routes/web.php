@@ -21,14 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('livros')->middleware('auth')->group(function (){
+    Route::get('adicionar',[\App\Http\Controllers\LivrosController::class,'formulario']);
+    Route::post('save', [\App\Http\Controllers\LivrosController::class,'save'])->name('livros.save');
+});
