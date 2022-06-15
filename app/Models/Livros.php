@@ -23,4 +23,6 @@ class Livros extends Model
         'tipo',
         'status'
     ];
+
+
 }

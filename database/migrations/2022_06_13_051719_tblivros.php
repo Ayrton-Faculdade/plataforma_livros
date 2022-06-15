@@ -28,7 +28,7 @@ class Tblivros extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->tinyInteger('tipo');
             $table->tinyInteger('status')->unsigned()->default(1);
-
+            $table->timestamps();
         });
     }
 

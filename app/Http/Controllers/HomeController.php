@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Livros;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $livros = Livros::all();
+        foreach($livros as $key=>$livro){
+            $usuario = User::find($livro->user_id);
+            $livro->nome_usuario = "{$usuario->name} {$usuario->sobrenome}";
+            $livros[$key]=$livro;
+
+
+
+        }
+        return view('home',[
+            'livros' => $livros,
+        ]);
     }
 }
