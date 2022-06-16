@@ -24,5 +24,7 @@ class Livros extends Model
         'status'
     ];
 
-
+    public function getCategoria(){
+        return $this->hasOne(Categorias::class, 'id', 'categoria');
+    }
 }

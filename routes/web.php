@@ -25,3 +25,12 @@ Route::prefix('livros')->middleware('auth')->group(function (){
     Route::get('adicionar',[\App\Http\Controllers\LivrosController::class,'formulario']);
     Route::post('save', [\App\Http\Controllers\LivrosController::class,'save'])->name('livros.save');
 });
+
+/*
+Route::prefix('categorias')->middleware('auth')->group(function(){
+    Route::get('adicionar',[\App\Http\Controllers\CategoriasController::class,'formulario']);
+    Route::post('save',[\App\Http\Controllers\CategoriasController::class,'save'])->name('categorias.save);
+});
+*/
+
+Route::get('/categorias/adicionar',[\App\Http\Controllers\CategoriasController::class, 'index']);

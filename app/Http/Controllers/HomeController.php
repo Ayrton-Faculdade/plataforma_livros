@@ -29,13 +29,17 @@ class HomeController extends Controller
         foreach($livros as $key=>$livro){
             $usuario = User::find($livro->user_id);
             $livro->nome_usuario = "{$usuario->name} {$usuario->sobrenome}";
+            $categoria = Livros::find($livro->id)->getCategoria;
+            $livro->categoria = $categoria->nome;
             $livros[$key]=$livro;
+
 
 
 
         }
         return view('home',[
             'livros' => $livros,
+
         ]);
     }
 }
