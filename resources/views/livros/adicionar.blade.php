@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Adicionar Livro') }}</div>
+                <div class="card-header">{{ __('Adicionar livro') }}</div>
                 <div class="card-body">
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -16,42 +16,42 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{Route('livros.save')}}" method="post" enctype='multipart/form-data'>
+                    <form action="{{Route('livros.save')}}"  method="post" enctype='multipart/form-data'>
                         @csrf
                         <div class="mb-3 row">
                             <label for="inputNome" class="col-sm-1 col-form-label">Nome</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="inputNome" name="nome" value="{{ old('nome') }}" required>
+                                <input type="text" class="form-control" id="inputNome" name="nome" placeholder="ex: Dom Casmurro" value="{{ old('nome') }}" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="inputAutor" class="col-sm-1 col-form-label">Autor</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputAutor" name="autor" value="{{ old('autor') }}" required>
+                                <input type="text" class="form-control" id="inputAutor" name="autor" placeholder="ex: Machado de Assis" value="{{ old('autor') }}" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="inputAno" class="col-sm-1 col-form-label">Ano</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" id="inputAno" name="ano" value="{{ old('ano') }}" required>
+                                <input type="text" class="form-control" id="inputAno" name="ano" placeholder="ex: 1899" value="{{ old('ano') }}" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="inputEdicao" class="col-sm-1 col-form-label">Edição</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" id="inputEdicao" name="edicao" value="{{ old('edicao') }}" required>
+                                <input type="text" class="form-control" id="inputEdicao" name="edicao" placeholder="ex: 2" value="{{ old('edicao') }}" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="inputEditora" class="col-sm-1 col-form-label">Editora</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" id="inputEditora" name="editora" value="{{ old('editora') }}" required>
+                                <input type="text" class="form-control" id="inputEditora" name="editora" placeholder="ex: Principis" value="{{ old('editora') }}" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="inputISBN" class="col-sm-1 col-form-label">ISBN</label>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control" id="inputISBN" name="isbn" value="{{ old('isbn') }}" required>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" id="inputISBN" name="isbn" placeholder="Sem traços ou espaços" value="{{ old('isbn') }}" required>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Descrição</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descricao" required>{{ old('descricao') }}</textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descricao" placeholder="ex: Em Dom Casmurro, o narrador Bento Santiago retoma a infância que passou na Rua de Matacavalos e conta a história do amor e das desventuras que viveu com Capitu." required>{{ old('descricao') }}</textarea>
                         </div>
                         <div class="mb-3 row">
                             <label for="formFileSm" class="col-1 col-form-label">Capa</label>

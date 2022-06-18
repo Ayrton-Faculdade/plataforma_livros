@@ -27,4 +27,8 @@ class Livros extends Model
     public function getCategoria(){
         return $this->hasOne(Categorias::class, 'id', 'categoria');
     }
+
+    public function getUser(){
+        return $this->hasOne(User::class,'id','user_id');
+    }
 }

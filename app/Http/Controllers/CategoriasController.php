@@ -10,20 +10,23 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoriasController extends Controller
 {
-    /*
+
     public function formulario(Request $request)
     {
+        $categorias = Categorias::all();
         return view('categorias/adicionar',[
-            #'categorias'=>$categorias,
+            'categorias'=>$categorias,
         ]);
     }
-    */
 
-    public function index(){
-        return view('categorias/adicionar');
+
+    public function editar(){
+        return view ('categorias/editar',[
+
+        ]);
     }
 
-    /*
+
     public function save(Request $request){
         $validado= Validator::make($request->all(),[
             'nome'=>['required','max:255'],
@@ -36,6 +39,7 @@ class CategoriasController extends Controller
         }
 
         $save = [
+            'user_id'=>Auth::user()->id,
             'nome'=>$request->post('nome'),
         ];
 
@@ -50,5 +54,18 @@ class CategoriasController extends Controller
 
         return redirect('/home')->with('sucesso','Categoria salva com sucesso');
     }
-     */
+    /*
+    public function edit($id){
+
+    }
+
+    public function update(Request $request, $id){
+
+    }
+
+    public function destroy($id){
+
+    }
+
+    */
 }
