@@ -1,5 +1,17 @@
 @extends('layouts.app')
 
+<script>
+    function desabilitarCapa(valor) {
+        var status = document.getElementById('capa').disabled;
+
+        if (valor == 'sim' && !status) {
+            document.getElementById('capa').disabled = true;
+        } else {
+            document.getElementById('capa').disabled = false;
+        }
+    }
+</script>
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -16,9 +28,10 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{"livros/$livro->id"}}"  method="post" enctype='multipart/form-data'>
+                        <form action="{{Route('livros.update',[$livro->id])}}"  method="post" enctype='multipart/form-data'>
                             @csrf
-                            @method('PUT')
+                            @method('POST')
+                            <input type="hidden" name="id" id="livroId" value="{{$livro->id}}">
                             <div class="mb-3 row">
                                 <label for="inputNome" class="col-sm-1 col-form-label">Nome</label>
                                 <div class="col-sm-6">
@@ -83,12 +96,13 @@
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descricao"  required>{{ old('descricao',$livro->descricao) }}</textarea>
                             </div>
                             <div class="mb-3 row">
-                                <label for="formFileSm" class="col-1 col-form-label">Capa</label>
+                                <label for="capa" class="col-1 col-form-label">Capa</label>
                                 <div class="col-6">
-                                    <input class="form-control form-control-sm" id="formFileSm" type="file" name="capa" value="{{$livro->capa}}"> <img src="{{url('/storage/'. $livro->capa)}}" class="img-fluid" alt="Sem imagem" style="width: 50%;">
+                                    <input class="form-control form-control-sm" id="capa"  type="file" name="capa" value="{{$livro->capa}}"> <img src="{{url('/storage/'. $livro->capa)}}" class="img-fluid" alt="Sem imagem" style="width: 50%;">
+                                    <input type="checkbox" onclick="desabilitarCapa('sim')"  name="removercapa" value="1" id="removercapa"> <label for="removercapa">Remover Capa</label>
                                 </div>
                             </div>
-                            <button type="submit">Cadastrar novo Livro</button>
+                            <button type="submit">Editar Livro</button>
                         </form>
                     </div>
                 </div>

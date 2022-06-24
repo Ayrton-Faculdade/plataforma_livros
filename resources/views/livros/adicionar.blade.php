@@ -27,7 +27,7 @@
                         <div class="mb-3 row">
                             <label for="inputAutor" class="col-sm-1 col-form-label">Autor</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputAutor" name="autor" placeholder="ex: Machado de Assis" value="{{ old('autor') }}" required>
+                                <input type="text" class="form-control" id="inputAutor" name="autor" placeholder="ex: Machado de Assis"  value="{{ old('autor') }}" required>
                             </div>
                         </div>
                         <div class="mb-3 row">

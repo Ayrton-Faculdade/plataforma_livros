@@ -36,7 +36,7 @@
                                     <h7><a href="{{url("livros/$livro->id")}}" class="btn btn-primary">Visualizar</a> <span style="float:right;">@if ($livro->tipo==1) Troca @else Doação @endif</span></h7>
 
                                     @php  $user=$livro->find($livro->id)->getUser; @endphp
-                                    Postado por: {{strlen($user->name)>7 ? substr($user->name,0,7).'...' : $user->name}} {{strlen($user->sobrenome)>7? substr($user->sobrenome,0,7).'...' : $user->sobrenome}}
+                                    Postado por: {{strlen($livro->getUser)>7 ? substr($user->name,0,7).'...' : $user->name}} {{strlen($user->sobrenome)>7? substr($user->sobrenome,0,7).'...' : $user->sobrenome}}
                                 </div>
                             </div>
                         @endforeach

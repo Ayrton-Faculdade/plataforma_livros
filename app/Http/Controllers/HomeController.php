@@ -32,14 +32,9 @@ class HomeController extends Controller
             $categoria = Livros::find($livro->id)->getCategoria;
             $livro->categoria = $categoria->nome;
             $livros[$key]=$livro;
-
-
-
-
         }
         return view('home',[
             'livros' => $livros,
-
         ]);
     }
 }

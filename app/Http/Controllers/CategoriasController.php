@@ -19,14 +19,6 @@ class CategoriasController extends Controller
         ]);
     }
 
-
-    public function editar(){
-        return view ('categorias/editar',[
-
-        ]);
-    }
-
-
     public function save(Request $request){
         $validado= Validator::make($request->all(),[
             'nome'=>['required','max:255'],
@@ -54,6 +46,7 @@ class CategoriasController extends Controller
 
         return redirect('/home')->with('sucesso','Categoria salva com sucesso');
     }
+
     /*
     public function edit($id){
 

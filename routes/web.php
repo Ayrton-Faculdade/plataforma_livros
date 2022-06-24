@@ -27,6 +27,7 @@ Route::prefix('livros')->middleware('auth')->group(function (){
     Route::post('save', [\App\Http\Controllers\LivrosController::class,'save'])->name('livros.save');
     Route::get('{livros}',[\App\Http\Controllers\LivrosController::class,'show']);
     Route::get('{livros}/editar',[\App\Http\Controllers\LivrosController::class, 'edit']);
+    Route::post('{livros}/update',[\App\Http\Controllers\LivrosController::class, 'update'])->name('livros.update');
 });
 
 

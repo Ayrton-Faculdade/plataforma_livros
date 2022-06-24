@@ -10,10 +10,9 @@
                         <div style="background: #efefef;padding:5px 0px 5px 5px;">
                             <img src="{{url('/storage/'. $livro->capa)}}" class="img-fluid" alt="Sem imagem" style="width: 50%;">
                             <div class="" style="display: inline-block;">
-                                @php  $cat=$livro->find($livro->id)->getCategoria; $user=$livro->find($livro->id)->getUser; @endphp
                                 <a href="#" class="btn btn-primary" style="display: block; margin: 25px 75px 0px 150px;">Entrar em Contato</a>
-                                @if(auth()->user()->id == $livro->user_id)<a href="{{url("livros/$livro->id/editar")}}" class="btn btn-warning" style="display: block; margin: 25px 75px 0px 150px;" >Editar Livro</a>@endif
-                                @if(auth()->user()->id == $livro->user_id)<a href="#" class="btn btn-danger" style="display: block; margin: 25px 75px 5px 150px;" >Deletar Livro</a>@endif
+                                @if(Auth::user()->id == $livro->user_id)<a href="{{url("livros/$livro->id/editar")}}" class="btn btn-warning" style="display: block; margin: 25px 75px 0px 150px;" >Editar Livro</a>@endif
+                                @if(Auth::user()->id == $livro->user_id)<a href="#" class="btn btn-danger" style="display: block; margin: 25px 75px 5px 150px;" >Deletar Livro</a>@endif
                             </div>
                         </div>
                         <div class="card-body d-flex flex-column">
@@ -62,7 +61,7 @@
                                         Categoria:
                                     </div>
                                     <div class="col">
-                                        {{$cat->nome}}
+                                        {{$livro->getCategoria->nome}}
                                     </div>
                                 </div>
                                 <div class="row mb-2">
